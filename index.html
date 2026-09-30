@@ -2,397 +2,397 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>혜택온 (Hyetaek-ON)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자기소개 - 김영근</title>
     <style>
-        /* Reset & Base Styles */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            -webkit-tap-highlight-color: transparent;
         }
 
         body {
-            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #fff;
-            word-break: keep-all;
+            font-family: 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+            background-color: #faf8f5;
+            color: #332f2c;
+            font-size: 16px; /* 본문 글자 크기 키움 */
+            line-height: 1.8; /* 문단 간격(행간) 넓힘 */
         }
 
-        /* Hero Section (Navy Background) */
-        .hero {
-            background-color: #001f3f; /* Navy */
+        /* 상단 네이비 소개 영역 (지정 색상 적용) */
+        .hero-header {
+            background-color: #1B2A4A;
             color: #ffffff;
             padding: 60px 20px;
             text-align: center;
+            position: relative;
+            overflow: hidden;
         }
 
-        .hero h1 {
-            font-size: 1.8rem;
-            margin-bottom: 15px;
+        .hero-header::after {
+            content: '';
+            position: absolute;
+            bottom: -30px;
+            left: 0;
+            width: 100%;
+            height: 50px;
+            background-color: #faf8f5;
+            border-radius: 50% 50% 0 0;
+        }
+
+        .profile-emoji {
+            font-size: 64px;
+            background: #243b67;
+            width: 120px;
+            height: 120px;
+            line-height: 120px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero-header h1 {
+            font-size: 28px;
+            margin-bottom: 8px;
             font-weight: 700;
         }
 
-        .hero p.main-text {
-            font-size: 1.2rem;
-            font-weight: 500;
-            margin-bottom: 10px;
+        .hero-header p.major {
+            font-size: 17px;
+            color: #E8A33D; /* 앰버 강조색 */
+            margin-bottom: 15px;
+            font-weight: 600;
         }
 
-        .hero p.sub-text {
-            font-size: 0.95rem;
-            opacity: 0.8;
+        .goal-banner {
+            display: inline-block;
+            background: rgba(232, 163, 61, 0.15);
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-size: 15px;
+            color: #fcd34d;
+            border: 1px solid rgba(232, 163, 61, 0.3);
+            margin-bottom: 15px;
         }
 
-        /* Features Section (3 Cards) */
-        .features {
-            padding: 40px 20px;
+        .sns-link {
+            display: inline-block;
+            color: #cbd5e1;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+
+        .sns-link:hover {
+            color: #E8A33D;
+        }
+
+        /* 밝은 본문 영역 (2단 구성) */
+        .container {
+            max-width: 900px;
+            margin: 20px auto 40px;
+            padding: 0 20px;
+        }
+
+        .grid-container {
             display: grid;
-            grid-template-columns: 1fr;
+            grid-template-columns: 1fr 1fr;
             gap: 20px;
         }
 
-        .feature-card {
-            background: #f8f9fa;
-            padding: 25px;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-        }
-
-        .feature-card h3 {
-            color: #001f3f;
-            font-size: 1.2rem;
-            margin-bottom: 12px;
-        }
-
-        .feature-card p {
-            font-size: 0.95rem;
-            color: #555;
-            margin-bottom: 4px;
-        }
-
-        /* Pricing Table */
-        .pricing {
-            padding: 40px 20px;
-            background-color: #ffffff;
-        }
-
-        .pricing h2 {
-            text-align: center;
-            margin-bottom: 25px;
-        }
-
-        .table-wrapper {
-            overflow-x: auto; /* Mobile scroll for table */
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            min-width: 450px; /* Ensures table doesn't squash too much */
-            font-size: 0.9rem;
-        }
-
-        th, td {
-            padding: 12px 8px;
-            border-bottom: 1px solid #eee;
-            text-align: center;
-        }
-
-        th {
-            background-color: #f4f4f4;
-            color: #333;
-            font-weight: 600;
-        }
-
-        /* Highlight Recommended Plan */
-        .highlight {
-            background-color: #fff9e6; /* Light yellow highlight */
-            border: 2px solid #ffd700;
-        }
-
-        .recommended-label {
-            display: block;
-            font-size: 0.7rem;
-            color: #e67e22;
-            font-weight: bold;
-            margin-bottom: 4px;
-        }
-
-        /* FAQ Section (Accordion) */
-        .faq {
-            padding: 40px 20px;
-            background-color: #f8f9fa;
-        }
-
-        .faq h2 {
-            text-align: center;
-            margin-bottom: 25px;
-        }
-
-        .faq-item {
-            background: #fff;
-            margin-bottom: 10px;
-            border-radius: 8px;
-            overflow: hidden;
-            border: 1px solid #ddd;
-        }
-
-        .faq-question {
-            width: 100%;
-            padding: 15px;
-            text-align: left;
-            background: none;
-            border: none;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .faq-question::after {
-            content: '+';
-            font-size: 1.2rem;
-            color: #001f3f;
-        }
-
-        .faq-item.active .faq-question::after {
-            content: '-';
-        }
-
-        .faq-answer {
-            max-height: 0;
-            padding: 0 15px;
-            overflow: hidden;
-            transition: max-height 0.3s ease-out, padding 0.3s ease;
-            color: #666;
-            font-size: 0.95rem;
-        }
-
-        .faq-item.active .faq-answer {
-            max-height: 300px; /* Large enough to contain text */
-            padding: 0 15px 15px 15px;
-        }
-
-        /* CTA Button Section */
-        .cta-section {
-            padding: 60px 20px;
-            text-align: center;
-        }
-
-        .btn-submit {
-            display: inline-block;
-            background-color: #001f3f;
-            color: #fff;
-            padding: 20px 30px;
-            font-size: 1.1rem;
-            font-weight: 700;
-            text-decoration: none;
-            border-radius: 50px;
-            border: none;
-            width: 100%;
-            max-width: 400px;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(0,31,63,0.3);
-        }
-
-        /* Footer */
-        .footer {
-            padding: 30px 20px;
-            text-align: center;
-            font-size: 0.8rem;
-            color: #888;
-            background-color: #eee;
-        }
-
-        /* Alert/Demo Popup */
-        #demo-alert {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            z-index: 1000;
-            text-align: center;
-            width: 80%;
-            max-width: 300px;
-        }
-
-        #overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.5);
-            z-index: 999;
-        }
-
-        .btn-close {
-            margin-top: 20px;
-            padding: 10px 25px;
-            background: #eee;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        /* Responsive Tablet/Desktop */
-        @media (min-width: 768px) {
-            .features {
-                grid-template-columns: repeat(3, 1fr);
+        @media (max-width: 768px) {
+            .grid-container {
+                grid-template-columns: 1fr;
             }
-            .hero h1 { font-size: 2.5rem; }
-            .cta-section { padding: 80px 20px; }
+        }
+
+        .card {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 4px 12px rgba(27, 42, 74, 0.05);
+            transition: transform 0.2s ease;
+            border-top: 4px solid #1B2A4A;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+        }
+
+        .card h2 {
+            font-size: 19px;
+            color: #1B2A4A;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 2px solid #fef3c7;
+            padding-bottom: 10px;
+        }
+
+        /* 관심 분야 리스트 및 링크 */
+        .interest-list {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .interest-item {
+            background: #fffbeb;
+            margin-bottom: 12px;
+            padding: 14px 16px;
+            border-radius: 8px;
+            font-size: 16px;
+            color: #78350f;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-left: 4px solid #E8A33D;
+        }
+
+        /* 요즘 배우는 것 섹션 스타일 */
+        .learning-section {
+            margin-top: 25px;
+            border-top: 1px dashed #e2e8f0;
+            padding-top: 20px;
+        }
+
+        .learning-section h3 {
+            font-size: 16px;
+            color: #1B2A4A;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .learning-list {
+            list-style-type: disc;
+            padding-left: 20px;
+            color: #4a5568;
+            font-size: 15px;
+        }
+
+        .learning-list li {
+            margin-bottom: 8px;
+        }
+
+        .favorite-links {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .link-btn {
+            flex: 1;
+            text-align: center;
+            background-color: #1B2A4A;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 10px 12px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            transition: background-color 0.2s, transform 0.2s;
+        }
+
+        .link-btn:hover {
+            background-color: #E8A33D;
+            color: #1B2A4A;
+            transform: translateY(-2px);
+        }
+
+        /* 좋아하는 것 3가지 카드 */
+        .likes-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+        }
+
+        .like-box {
+            background: #fffbeb;
+            text-align: center;
+            padding: 20px 10px;
+            border-radius: 12px;
+            border: 1px solid #fde68a;
+        }
+
+        .like-box .emoji {
+            font-size: 30px;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .like-box span.label {
+            font-size: 14px;
+            color: #78350f;
+            font-weight: 600;
+        }
+
+        /* 명함 스타일 카드 */
+        .business-card {
+            max-width: 450px;
+            margin: 40px auto 20px;
+            background: linear-gradient(135deg, #1B2A4A 0%, #243b67 100%);
+            color: #ffffff;
+            padding: 25px 30px;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 8px 20px rgba(27, 42, 74, 0.15);
+            border: 2px solid #E8A33D;
+        }
+
+        .business-card h3 {
+            font-size: 20px;
+            margin-bottom: 6px;
+            letter-spacing: 1px;
+        }
+
+        .business-card .bc-title {
+            font-size: 13px;
+            color: #E8A33D;
+            margin-bottom: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .business-card .bc-desc {
+            font-size: 15px;
+            color: #cbd5e1;
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+            padding-top: 10px;
+        }
+
+        /* 인사하기 버튼 영역 */
+        .interactive-section {
+            text-align: center;
+            margin: 30px 0 20px;
+        }
+
+        .action-btn {
+            background-color: #1B2A4A;
+            color: #ffffff;
+            border: 2px solid #E8A33D;
+            padding: 12px 28px;
+            border-radius: 30px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .action-btn:hover {
+            background-color: #E8A33D;
+            color: #1B2A4A;
+            transform: translateY(-2px);
+        }
+
+        .greeting-message {
+            margin-top: 15px;
+            font-size: 16px;
+            color: #1B2A4A;
+            font-weight: 600;
+            min-height: 24px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 13px;
+            color: #94a3b8;
         }
     </style>
 </head>
 <body>
 
-    <!-- 상단 소개 -->
-    <section class="hero">
-        <h1>혜택온 (Hyetaek-ON)</h1>
-        <p class="main-text">매일 가는 편의점, 매일 아끼는 구독 — 혜택온</p>
-        <p class="sub-text">커피부터 도시락까지, 월 구독 한 번으로 등굣길 소비가 달라집니다.</p>
-    </section>
+    <!-- 상단 소개 영역 (지정 남색 배경) -->
+    <header class="hero-header">
+        <div class="profile-emoji">🏦</div>
+        <h1>김영근</h1>
+        <p class="major">경영학과 3학년</p>
+        <div class="goal-banner">
+            🎯 "자신의 가치를 높이고 목표를 달성하는데 노력하겠습니다."
+        </div>
+        <div>
+            <a href="https://instagram.com/o_jin_wook" target="_blank" class="sns-link">📸 Instagram: @o_jin_wook</a>
+        </div>
+    </header>
 
-    <!-- 핵심 특징 3칸 -->
-    <section class="features">
-        <div class="feature-card">
-            <h3>매일 커피 구독</h3>
-            <p>월 4,900원으로 아메리카노를 매일 1잔 40% 할인</p>
-            <p>출근길·등교길 커피값 부담을 절반으로</p>
-        </div>
-        <div class="feature-card">
-            <h3>점심 도시락 구독</h3>
-            <p>월 3,900원으로 도시락·샌드위치를 매일 1개 20% 할인</p>
-            <p>시험 기간 식비 방어의 필수템</p>
-        </div>
-        <div class="feature-card">
-            <h3>앱에서 3초 사용</h3>
-            <p>결제도 사용도 앱 바코드 하나로 끝</p>
-            <p>이번 달 아낀 금액을 앱에서 실시간 확인</p>
-        </div>
-    </section>
+    <!-- 밝은 본문 영역 (2단 구성) -->
+    <main class="container">
+        <div class="grid-container">
+            <!-- 관심 분야 카드 및 요즘 배우는 것 섹션 -->
+            <section class="card">
+                <h2>📈 관심 분야</h2>
+                <ul class="interest-list">
+                    <li class="interest-item">💳 은행업 및 금융 트렌드</li>
+                </ul>
 
-    <!-- 요금표 -->
-    <section class="pricing">
-        <h2>요금표</h2>
-        <div class="table-wrapper">
-            <table>
-                <thead>
-                    <tr>
-                        <th>구분</th>
-                        <th>월 구독료</th>
-                        <th>주요 혜택</th>
-                        <th>추천 대상</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>커피 플랜</td>
-                        <td>4,900원</td>
-                        <td>아메리카노 매일 1잔 40% 할인</td>
-                        <td>매일 커피 마시는 통학러</td>
-                    </tr>
-                    <tr>
-                        <td>도시락 플랜</td>
-                        <td>3,900원</td>
-                        <td>도시락·샌드위치 매일 1개 20% 할인</td>
-                        <td>점심을 편의점에서 해결하는 자취생</td>
-                    </tr>
-                    <tr class="highlight">
-                        <td><span class="recommended-label">추천</span><br>올인원 플랜</td>
-                        <td>7,900원</td>
-                        <td>커피+도시락 혜택 전부</td>
-                        <td>하루 두 번 이상 방문하는 헤비 유저</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </section>
+                <!-- 요즘 배우는 것 섹션 추가 -->
+                <div class="learning-section">
+                    <h3>💡 요즘 배우는 것</h3>
+                    <ul class="learning-list">
+                        <li>금융 데이터 분석 및 리스크 관리 기초</li>
+                        <li>디지털 뱅킹과 핀테크 서비스의 이해</li>
+                        <li>기업 재무제표 해석 및 실무 사례 연구</li>
+                    </ul>
+                </div>
 
-    <!-- FAQ -->
-    <section class="faq">
-        <h2>자주 묻는 질문(FAQ)</h2>
-        <div class="faq-item">
-            <button class="faq-question" onclick="toggleFaq(this)">Q1. 해지는 어떻게 하나요?</button>
-            <div class="faq-answer">
-                <p>A1. 앱의 '내 구독' 화면에서 버튼 한 번으로 즉시 해지됩니다. 남은 기간 혜택은 만료일까지 유지됩니다.</p>
-            </div>
-        </div>
-        <div class="faq-item">
-            <button class="faq-question" onclick="toggleFaq(this)">Q2. 할인 혜택을 하루에 여러 번 쓸 수 있나요?</button>
-            <div class="faq-answer">
-                <p>A2. 플랜별로 하루 1회 사용이 원칙이며, 올인원 플랜은 커피 1회와 도시락 1회를 각각 사용할 수 있습니다.</p>
-            </div>
-        </div>
-        <div class="faq-item">
-            <button class="faq-question" onclick="toggleFaq(this)">Q3. 모든 매장에서 사용할 수 있나요?</button>
-            <div class="faq-answer">
-                <p>A3. 전국 제휴 매장에서 사용 가능하며, 앱 지도에서 가까운 제휴 매장을 확인할 수 있습니다.</p>
-            </div>
-        </div>
-        <div class="faq-item">
-            <button class="faq-question" onclick="toggleFaq(this)">Q4. 구독료가 아깝지 않을까요?</button>
-            <div class="faq-answer">
-                <p>A4. 커피 플랜 기준 월 4회만 사용해도 구독료 이상을 아끼게 됩니다. 앱의 '절약 리포트'가 매달 아낀 금액을 계산해 드립니다.</p>
-            </div>
-        </div>
-    </section>
+                <div class="favorite-links">
+                    <a href="https://www.naver.com" target="_blank" class="link-btn">🔗 네이버 금융</a>
+                    <a href="https://www.google.com" target="_blank" class="link-btn">🔗 구글 뉴스</a>
+                </div>
+            </section>
 
-    <!-- 신청 버튼 -->
-    <section class="cta-section">
-        <button class="btn-submit" onclick="showAlert()">지금 무료 체험 시작하기 (2021010762경영학과김영근)</button>
-    </section>
+            <!-- 좋아하는 것 3가지 카드 -->
+            <section class="card">
+                <h2>💖 좋아하는 것 3가지</h2>
+                <div class="likes-grid">
+                    <div class="like-box">
+                        <span class="emoji">💪</span>
+                        <span class="label">헬스</span>
+                    </div>
+                    <div class="like-box">
+                        <span class="emoji">⚽</span>
+                        <span class="label">축구</span>
+                    </div>
+                    <div class="like-box">
+                        <span class="emoji">🎮</span>
+                        <span class="label">게임</span>
+                    </div>
+                </div>
+            </section>
+        </div>
 
-    <!-- 하단 안내 -->
-    <footer class="footer">
-        혜택온은 인공지능과경영 수업 실습용 가상 서비스입니다.
+        <!-- 명함 스타일 카드 (가운데 정렬) -->
+        <div class="business-card">
+            <h3>김영근 (kim young keun)</h3>
+            <div class="bc-title">Business & Banking Interest</div>
+            <p class="bc-desc">관심사: 은행업 | 경영학과 3학년</p>
+        </div>
+
+        <!-- 인사하기 버튼 및 인터랙티브 자바스크립트 영역 -->
+        <div class="interactive-section">
+            <button id="greetingBtn" class="action-btn">인사하기</button>
+            <div id="greetingMsg" class="greeting-message"></div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Oh Jin Wook. All rights reserved.</p>
     </footer>
 
-    <!-- Demo Alert Elements -->
-    <div id="overlay" onclick="hideAlert()"></div>
-    <div id="demo-alert">
-        <h3 style="margin-bottom: 10px;">알림</h3>
-        <p>신청접수(데모)</p>
-        <button class="btn-close" onclick="hideAlert()">확인</button>
-    </div>
-
     <script>
-        // FAQ Accordion Logic
-        function toggleFaq(btn) {
-            const item = btn.parentElement;
-            const isActive = item.classList.contains('active');
-            
-            // Close all first
-            document.querySelectorAll('.faq-item').forEach(el => el.classList.remove('active'));
-            
-            // Open the clicked one if it wasn't active
-            if (!isActive) {
-                item.classList.add('active');
-            }
-        }
+        let clickCount = 0;
+        const btn = document.getElementById('greetingBtn');
+        const msg = document.getElementById('greetingMsg');
 
-        // Alert/Demo Logic
-        function showAlert() {
-            document.getElementById('overlay').style.display = 'block';
-            document.getElementById('demo-alert').style.display = 'block';
-        }
-
-        function hideAlert() {
-            document.getElementById('overlay').style.display = 'none';
-            document.getElementById('demo-alert').style.display = 'none';
-        }
+        btn.addEventListener('click', function() {
+            clickCount++;
+            msg.textContent = "방문해 주셔서 감사합니다!";
+            btn.textContent = `박수 ${clickCount}번`;
+        });
     </script>
+
 </body>
 </html>
